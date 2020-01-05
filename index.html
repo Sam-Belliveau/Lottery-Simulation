@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> When Will I Win The PowerBall? </title>
+        <title> Will I Win The PowerBall? </title>
+        <style>
+            .title {
+                margin: auto;
+                text-align: center;
+            }
+
+            .powerball-entry {
+                margin: auto;
+                text-align: center;
+            }
+
+            form {
+                margin: auto;
+                text-align: center;
+                width: 500px;
+            }
+        </style>
     </head>
-    <style>
-        .titlepage {
-          max-width: 500px;
-          margin: auto;
-        }
-    </style>
+
     <body>
-        <div content="titlepage">
-            <h1> When Will You Win The PowerBall? </h1>
-            <h2> An accurate simulation of the PowerBall </h2>
+        <div class="title">
+            <h1> Will You Win The PowerBall? </h1>
         </div>
+
+        <form id="ball-entry" action="" method="POST">
+            Ball 1: <input id="wball1" type="number" min="1" max="69"><br>
+            Ball 2: <input id="wball2" type="number" min="1" max="69"><br>
+            Ball 4: <input id="wball3" type="number" min="1" max="69"><br>
+            Ball 5: <input id="wball4" type="number" min="1" max="69"><br>
+            Ball 6: <input id="wball5" type="number" min="1" max="69"><br>
+            Red Ball: <input id="redball" type="number" min="1" max="26"><br>
+        </form>
+
+        <button onclick="postMoney()">pepe</button>
+        <h2 id="prise"> PENIS </h2>
+
+        <script src="scripts/random.js"></script>
+        <script src="scripts/powerball.js"></script>
+        <script>
+            function postMoney() {
+                pick = getRandomBallSet()
+                user = getBallSetFromUser()
+                prise = user.checkPrise(pick)
+                text = "pick = " + pick.text + " | prise = $" + prise
+                document.getElementById("prise").innerHTML = text;
+            }
+        </script>
     </body>
 </html>
