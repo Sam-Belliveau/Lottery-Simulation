@@ -56,6 +56,7 @@ class BallSet {
             case 3: return mRed ? 3 : 2
             case 4: return mRed ? 4 : 3
             case 5: return mRed ? 6 : 5
+            default: return 0
         }
     }
 
@@ -65,13 +66,13 @@ class BallSet {
     }
 
     get text() {
-        return "[" +
+        return "" +
             this.whites[0] + " " +
             this.whites[1] + " " +
             this.whites[2] + " " +
             this.whites[3] + " " +
             this.whites[4] + " (" +
-            this.red + ")]"
+            this.red + ")"
     }
 }
 
