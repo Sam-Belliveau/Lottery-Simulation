@@ -49,7 +49,11 @@
             <input id="wball5" type="number" min="1" max="69" value="5">
             <input id="redball" type="number" min="1" max="26" value="6" style="background-color:#DD6677">
             <br><br>
-            <button type="button" onclick="postMoney()">Enter Ticket</button>
+            <button type="button" onclick="postMoney(1)">Buy 1x Ticket</button>
+            <button type="button" onclick="postMoney(10)">Buy 10x Ticket</button>
+            <button type="button" onclick="postMoney(100)">Buy 100x Ticket</button>
+            <button type="button" onclick="postMoney(1000)">Buy 1000x Ticket</button>
+            <button type="button" onclick="postMoney(10000)">Buy 10000x Ticket</button>
         </form>
 
         <div class="results">
@@ -64,14 +68,15 @@
         <script src="scripts/random.js"></script>
         <script src="scripts/powerball.js"></script>
         <script>
-            function postMoney() {
-                GameState.round()
-                document.getElementById("pick").innerHTML = GameState.pick.text;
-                document.getElementById("prise").innerHTML = "Prize: " + GameState.prize + "$";
-                document.getElementById("money").innerHTML = "Total Money: " + GameState.money + "$";
-                document.getElementById("earned").innerHTML = "Money Earned: " + GameState.earned + "$";
-                document.getElementById("spent").innerHTML = "Money Spent: " + GameState.spent + "$";
-                return false
+            function postMoney(n) {
+                for(var i = 0; i < n; ++i) {
+                    GameState.round()
+                    document.getElementById("pick").innerHTML = GameState.pick.text;
+                    document.getElementById("prise").innerHTML = "Prize: " + GameState.prize + "$";
+                    document.getElementById("money").innerHTML = "Total Money: " + GameState.money + "$";
+                    document.getElementById("earned").innerHTML = "Money Earned: " + GameState.earned + "$";
+                    document.getElementById("spent").innerHTML = "Money Spent: " + GameState.spent + "$";
+                }
             }
         </script>
     </body>
