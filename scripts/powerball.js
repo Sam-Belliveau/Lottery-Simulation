@@ -40,10 +40,10 @@ class BallSet {
         // Its a little bit complicated
         var balls = other.whites.slice()
         for(const i of this.whites) {
-            for(var goal of balls) {
-                if(i == goal && goal != -1) {
+            for(var j = 0; j < 5; ++j) {
+                if(i == balls[j] && balls[j] != -1) {
                     mWhite += 1
-                    goal = -1
+                    balls[j] = -1
                     break;
                 }
             }
