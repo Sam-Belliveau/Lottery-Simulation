@@ -36,10 +36,10 @@
     <body>
         <div class="title">
             <h1> Will You Win The PowerBall? </h1>
-            <h2> Sponsored by Microsoft and Richard Lee </h2>
+            <h2> By Sam Belliveau</h2>
         </div>
 
-        <form id="ball-entry" action="" method="POST">
+        <form id="ball-entry">
             <b>Create Your Ticket:</b>
             <br>
             <input id="wball1" type="number" min="1" max="69" value="1">
@@ -49,24 +49,29 @@
             <input id="wball5" type="number" min="1" max="69" value="5">
             <input id="redball" type="number" min="1" max="26" value="6" style="background-color:#DD6677">
             <br><br>
-            <button onclick="postMoney()">Enter Ticket</button>
+            <button type="button" onclick="postMoney()">Enter Ticket</button>
         </form>
 
         <div class="results">
-            <br><br>
-            <h1 id="pick"> click the mother fucking button </h1>
-            <h1 id="prise"> pepepepepepe </h1>
+            <br>
+            <h2 id="pick"> ?? ?? ?? ?? ?? (??) </h2>
+            <h3 id="prise"> Prize: ?? </h3>
+            <h3 id="money"> Total Money: ?? </h3>
+            <h3 id="earned"> Money Earned: ?? </h3>
+            <h3 id="spent"> Money Spent: ?? </h3>
         </div>
 
         <script src="scripts/random.js"></script>
         <script src="scripts/powerball.js"></script>
         <script>
             function postMoney() {
-                pick = getRandomBallSet()
-                user = getBallSetFromUser()
-                prise = user.checkPrise(pick)
-                document.getElementById("pick").innerHTML = pick.text;
-                document.getElementById("prise").innerHTML = "$" + prise;
+                GameState.round()
+                document.getElementById("pick").innerHTML = GameState.pick.text;
+                document.getElementById("prise").innerHTML = "Prize: " + GameState.prize + "$";
+                document.getElementById("money").innerHTML = "Total Money: " + GameState.money + "$";
+                document.getElementById("earned").innerHTML = "Money Earned: " + GameState.earned + "$";
+                document.getElementById("spent").innerHTML = "Money Spent: " + GameState.spent + "$";
+                return false
             }
         </script>
     </body>

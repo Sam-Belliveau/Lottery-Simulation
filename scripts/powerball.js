@@ -60,19 +60,18 @@ class BallSet {
         }
     }
 
-    checkPrise(prise) {
-        var prises = [0, 4, 7, 100, 50000, 1000000, 10000000]
-        return prises[this.checkLevel(prise)]
+    checkPrize(prize) {
+        var prizes = [0, 4, 7, 100, 50000, 1000000, 1000000000]
+        return prizes[this.checkLevel(prize)]
     }
 
     get text() {
-        return "" +
-            this.whites[0] + " " +
-            this.whites[1] + " " +
-            this.whites[2] + " " +
-            this.whites[3] + " " +
-            this.whites[4] + " (" +
-            this.red + ")"
+        return  this.whites[0] + " " +
+                this.whites[1] + " " +
+                this.whites[2] + " " +
+                this.whites[3] + " " +
+                this.whites[4] + " (" +
+                this.red + ")"
     }
 }
 
@@ -94,4 +93,25 @@ function getBallSetFromUser() {
         document.getElementById("wball5").value,
         document.getElementById("redball").value,
     )
+}
+
+var GameState = {
+    pick: getRandomBallSet(),
+    user: getBallSetFromUser(),
+    money: 0,
+    earned: 0,
+    spent: 0,
+
+    round: function() {
+        this.pick = getRandomBallSet()
+        this.user = getBallSetFromUser()
+        this.money -= 20
+        this.spent += 20
+        this.money += this.prize
+        this.earned += this.prize
+    },
+
+    get prize() {
+        return this.user.checkPrize(this.pick)
+    }
 }
