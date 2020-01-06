@@ -51,8 +51,11 @@
             <button onclick="postMoney()">Enter Ticket</button>
         </form>
 
-        <div id="results">
-            <h2> ahhh </h2>
+        <div class="results">
+            <br><br>
+            <h1 id="pick"> click the mother fucking button </h1>
+            <br>
+            <h1 id="prise"> pepepepepepe </h1>
         </div>
 
         <script src="scripts/random.js"></script>
@@ -62,8 +65,8 @@
                 pick = getRandomBallSet()
                 user = getBallSetFromUser()
                 prise = user.checkPrise(pick)
-                text = "pick = " + pick.text + " | prise = $" + prise
-                document.getElementById("prise").innerHTML = text;
+                document.getElementById("pick").innerHTML = pick.text;
+                document.getElementById("prise").innerHTML = "?" + prise;
             }
         </script>
     </body>

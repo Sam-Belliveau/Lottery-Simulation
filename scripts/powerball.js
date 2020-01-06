@@ -60,7 +60,7 @@ class BallSet {
     }
 
     checkPrise(prise) {
-        var prises = [4, 7, 100, 50000, 1000000, 10000000]
+        var prises = [0, 4, 7, 100, 50000, 1000000, 10000000]
         return prises[this.checkLevel(prise)]
     }
 
@@ -86,11 +86,11 @@ function getRandomBallSet() {
 function getBallSetFromUser() {
     var balls = document.getElementById("ball-entry")
     return new BallSet(
-        balls.elements[0].value,
-        balls.elements[1].value,
-        balls.elements[2].value,
-        balls.elements[3].value,
-        balls.elements[4].value,
-        balls.elements[5].value
+        document.getElementById("wball1").value,
+        document.getElementById("wball2").value,
+        document.getElementById("wball3").value,
+        document.getElementById("wball4").value,
+        document.getElementById("wball5").value,
+        document.getElementById("redball").value,
     )
 }
