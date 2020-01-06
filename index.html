@@ -16,7 +16,18 @@
             form {
                 margin: auto;
                 text-align: center;
-                width: 500px;
+            }
+
+            .results {
+                margin: auto;
+                text-align: center;
+            }
+
+            input {
+                font-size: 20;
+                text-align: center;
+                width: 50px;
+                height: 48px;
             }
         </style>
     </head>
@@ -24,19 +35,25 @@
     <body>
         <div class="title">
             <h1> Will You Win The PowerBall? </h1>
+            <h2> Sponsored by Microsoft and Richard Lee </h2>
         </div>
 
         <form id="ball-entry" action="" method="POST">
-            Ball 1: <input id="wball1" type="number" min="1" max="69"><br>
-            Ball 2: <input id="wball2" type="number" min="1" max="69"><br>
-            Ball 4: <input id="wball3" type="number" min="1" max="69"><br>
-            Ball 5: <input id="wball4" type="number" min="1" max="69"><br>
-            Ball 6: <input id="wball5" type="number" min="1" max="69"><br>
-            Red Ball: <input id="redball" type="number" min="1" max="26"><br>
+            <b>Create Your Ticket:</b>
+            <br>
+            <input id="wball1" type="number" min="1" max="69" value="1">
+            <input id="wball2" type="number" min="1" max="69" value="2">
+            <input id="wball3" type="number" min="1" max="69" value="3">
+            <input id="wball4" type="number" min="1" max="69" value="4">
+            <input id="wball5" type="number" min="1" max="69" value="5">
+            <input id="redball" type="number" min="1" max="26" value="6" style="background-color:#DD6677">
+            <br><br>
+            <button onclick="postMoney()">Enter Ticket</button>
         </form>
 
-        <button onclick="postMoney()">pepe</button>
-        <h2 id="prise"> PENIS </h2>
+        <div id="results">
+            <h2> ahhh </h2>
+        </div>
 
         <script src="scripts/random.js"></script>
         <script src="scripts/powerball.js"></script>

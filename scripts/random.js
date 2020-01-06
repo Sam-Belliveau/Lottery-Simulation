@@ -7,7 +7,9 @@ CryptoByte = {
 
         var result = 0x00
         for(const i of entropy) {
-            result ^= entropy
+            result ^= i
+            result ^= window.performance.now()
+            result ^= (Math.floor(Math.random() * 256))
             result &= 0xff
         }
 

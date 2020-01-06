@@ -67,10 +67,10 @@ class BallSet {
     get text() {
         return "[" +
             this.whites[0] + " " +
-            this.whites[0] + " " +
-            this.whites[0] + " " +
-            this.whites[0] + " " +
-            this.whites[0] + " (" +
+            this.whites[1] + " " +
+            this.whites[2] + " " +
+            this.whites[3] + " " +
+            this.whites[4] + " (" +
             this.red + ")]"
     }
 }
