@@ -22,6 +22,17 @@
             .results {
                 margin: auto;
                 text-align: center;
+                align-items: center;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+                border-spacing: 1px;
+                text-align: center;
+            }
+
+            th, td {
+                padding: 5px;
             }
 
             input {
@@ -36,7 +47,7 @@
     <body>
         <div class="title">
             <h1> Will You Win The PowerBall? </h1>
-            <h2> By Sam Belliveau</h2>
+            <h2> By Sam Belliveau </h2>
         </div>
 
         <form id="ball-entry">
@@ -52,17 +63,36 @@
             <button type="button" onclick="postMoney(1)">Buy 1x Ticket</button>
             <button type="button" onclick="postMoney(10)">Buy 10x Ticket</button>
             <button type="button" onclick="postMoney(100)">Buy 100x Ticket</button>
-            <button type="button" onclick="postMoney(1000)">Buy 1000x Ticket</button>
-            <button type="button" onclick="postMoney(10000)">Buy 10000x Ticket</button>
         </form>
 
         <div class="results">
             <br>
-            <h2 id="pick"> ?? ?? ?? ?? ?? (??) </h2>
-            <h3 id="prise"> Prize: ?? </h3>
-            <h3 id="money"> Total Money: ?? </h3>
-            <h3 id="earned"> Money Earned: ?? </h3>
-            <h3 id="spent"> Money Spent: ?? </h3>
+            <table align="center">
+                <tr>
+                    <th><h3>Chosen Ticket</h3></th>
+                    <th><h3>Winning Ticket</h3></th>
+                </tr>
+                <tr>
+                    <th id="user"> ?? ?? ?? ?? ?? (??) </th>
+                    <th id="pick"> ?? ?? ?? ?? ?? (??) </th>
+                </tr>
+                <tr>
+                    <th><h3>Prize</h3></th>
+                    <th><h3>Total Money</h3></th>
+                </tr>
+                <tr>
+                    <th id="prize"> $???? </th>
+                    <th id="money"> $???? </th>
+                </tr>
+                <tr>
+                    <th><h3>Money Earned</h3></th>
+                    <th><h3>Money Spent</h3></th>
+                </tr>
+                <tr>
+                    <th id="earned"> $???? </th>
+                    <th id="spent"> $???? </th>
+                </tr>
+            </table>
         </div>
 
         <script src="scripts/random.js"></script>
@@ -71,8 +101,9 @@
             function postMoney(n) {
                 for(var i = 0; i < n; ++i) {
                     GameState.round()
+                    document.getElementById("user").innerHTML = GameState.user.text;
                     document.getElementById("pick").innerHTML = GameState.pick.text;
-                    document.getElementById("prise").innerHTML = "Prize: " + GameState.prize + "$";
+                    document.getElementById("prize").innerHTML = "Prize: " + GameState.prize + "$";
                     document.getElementById("money").innerHTML = "Total Money: " + GameState.money + "$";
                     document.getElementById("earned").innerHTML = "Money Earned: " + GameState.earned + "$";
                     document.getElementById("spent").innerHTML = "Money Spent: " + GameState.spent + "$";

@@ -1,16 +1,17 @@
-CryptoByte = {
+CryptoGen = {
     get: function() {
-        var entropy = new Uint8Array(256)
+        var entropy = new Uint32Array(1024)
 
         var rng = window.crypto || window.msCrypto
         rng.getRandomValues(entropy)
 
         var result = 0x00
         for(const i of entropy) {
-            result ^= i
-            result ^= window.performance.now()
-            result ^= (Math.floor(Math.random() * 256))
-            result &= 0xff
+            result ^= i ^ window.performance.now()
+            result &= 0xffffffff
+            result = (result >> 19) | (result << 13)
+            result &= 0xffffffff
+
         }
 
         return result & 0xff
