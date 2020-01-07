@@ -6,7 +6,7 @@ class BallData {
     }
 
     random() {
-        return window.CryptoByte.getRange(this.min, this.max + 1)
+        return CryptoGen.getRange(this.min, this.max + 1)
     }
 
     cap(n) {
@@ -38,12 +38,12 @@ class BallSet {
 
         // Count number of matching whites
         // Its a little bit complicated
-        var balls = other.whites.slice()
-        for(const i of this.whites) {
-            for(var j = 0; j < 5; ++j) {
-                if(i == balls[j] && balls[j] != -1) {
+        var pick = other.whites.slice()
+        for(const ball of this.whites) {
+            for(var i = 0; i < pick.length; ++i) {
+                if(ball == pick[i] && pick[i] != -1) {
                     mWhite += 1
-                    balls[j] = -1
+                    pick[i] = -1
                     break;
                 }
             }
@@ -66,12 +66,20 @@ class BallSet {
     }
 
     get text() {
-        return  this.whites[0] + " " +
-                this.whites[1] + " " +
-                this.whites[2] + " " +
-                this.whites[3] + " " +
-                this.whites[4] + " (" +
-                this.red + ")"
+        function format(n) {
+            if(n < 10) {
+                return "0" + n + " "
+            } else {
+                return n + " "
+            }
+        }
+
+        return  format(this.whites[0]) +
+                format(this.whites[1]) +
+                format(this.whites[2]) +
+                format(this.whites[3]) +
+                format(this.whites[4]) +
+                "[ " + format(this.red) + "]"
     }
 }
 
